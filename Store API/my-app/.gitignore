@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Log files
+logs/
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Build and dist directories
+build/
+dist/
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.cache
+
+# Coverage reports
+coverage/
+
+# Database files (if applicable)
+data/
+db.sqlite
+
+# Other generated files
+*.pid
+*.map
