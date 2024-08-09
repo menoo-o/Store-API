@@ -1,10 +1,30 @@
+import { Product } from '../model/product.js';
+
+
+
 const getAllProductsStatic = async (req, res)=>{
-    throw new Error('testing package')
-    res.status(200).json({msg:"product testing route"})
+    const products = await Product.find({})
+    res.status(200).json({products , nbHits: products.length})
 }
 
 const getAllProducts= async (req, res)=>{
-    res.status(200).json({msg:"products route"})
+    const {featured, company, name} = req.query;
+    const queryObject = {}
+    if (featured){
+        queryObject.featured = featured === 'true' ? true : false;
+    }
+    if (company){
+        queryObject.company = company.toLowerCase();
+    }
+
+    if (name){
+        queryObject.name = name;
+    }
+
+    console.log(queryObject);
+    
+    const products = await Product.find(req.query)
+    res.status(200).json({products , nbHits: products.length})
 }
 
 
